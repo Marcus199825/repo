@@ -1,0 +1,22 @@
+# Hash Tables
+
+# Hash tables, also known as hash maps or dictionaries, are data structures that store key-value pairs.#
+
+# Create a hash table (dictionary)
+hash_table = {}
+
+# Add key-value pairs to the hash table
+hash_table['mango'] = 20
+hash_table['carrot'] = 40
+hash_table['grapes'] = 60
+
+# Retrieve values from the hash table
+print("Value for 'mango':", hash_table['apple'])
+print("Value for 'carrot':", hash_table['carrot'])
+
+# Update a value in the hash table
+hash_table['carrot'] = 45
+print("Updated value for 'carrot':", hash_table['carrot'])
+
+# Delete a key from the hash table
+del hash_table['grapes']
