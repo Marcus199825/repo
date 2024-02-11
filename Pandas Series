@@ -1,0 +1,27 @@
+# Import pandas and numpy
+import pandas as pd
+import numpy as np
+
+# Create a numpy array to store the cumulative miles
+cumulative_miles = np.array([55, 120, 150, 210, 287, 300])
+
+# Convert it into a pandas Series
+cumulative_series = pd.Series(cumulative_miles, name='Cumulative Miles')
+
+# Create another array to store the miles covered each day
+# The first day's mile will be the same as the cumulative miles
+miles_each_day = np.array([cumulative_series.iloc[0]])
+
+# Iterate through the series to calculate miles covered each day
+for i in range(1, len(cumulative_series)):
+    # Miles for the current day will be cumulative miles till that day - previous day's mile
+    miles_each_day = np.append(miles_each_day, cumulative_series.iloc[i] - cumulative_series.iloc[i - 1])
+
+# Convert the new array into a pandas Series
+each_day_series = pd.Series(miles_each_day, name='Miles Each Day')
+
+# Display the cumulative and each day miles in a DataFrame
+mileage_df = pd.DataFrame({'Cumulative Miles': cumulative_series, 'Miles Each Day': each_day_series})
+
+# Display the DataFrame
+print(mileage_df)
