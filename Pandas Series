@@ -1,3 +1,20 @@
+import pandas as pd
+
+# Sample data (replace with your actual data)
+odometer_readings = [55, 120, 200, 275, 340]
+
+# Create a pandas Series for cumulative miles
+cumulative_miles = pd.Series(odometer_readings, name='Cumulative Miles')
+
+# Calculate miles ridden each day
+miles_ridden_each_day = cumulative_miles.diff().fillna(cumulative_miles.iloc[0])
+
+# Combine the two Series into a DataFrame for better presentation
+mileage_df = pd.DataFrame({'Cumulative Miles': cumulative_miles, 'Miles Ridden Each Day': miles_ridden_each_day})
+
+# Display the DataFrame
+mileage_df
+
 # Import pandas and numpy
 import pandas as pd
 import numpy as np
